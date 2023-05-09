@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Tistou/Start Menu.unity
-    guid: 226d09272013f6c46a0bff6cd91b60c8
+    guid: 7eb3596e1b9718f42affad92a7529a86
   - enabled: 1
     path: Assets/Tistou/Lindholmspiren bara mark.unity
     guid: 14a03dd9a7f08694d958cbcd031d5eb7
