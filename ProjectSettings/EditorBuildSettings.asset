@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Tistou/Lindholmspiren bara mark.unity
     guid: 14a03dd9a7f08694d958cbcd031d5eb7
   - enabled: 1
+    path: Assets/Tistou/Test scener/Guidad tur test.unity
+    guid: 00000000000000000000000000000000
+  - enabled: 1
     path: Assets/Tistou/Svetsstation.unity
     guid: 929a260231fe422488d041cf863f6c05
   - enabled: 1

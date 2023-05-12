@@ -8,14 +8,12 @@ namespace TistouVR
 {
     public class LoadSceneButton : VRTK_InteractableObject
     {
-        public int[] sceneIndexes;
-        public AudioClip _StoryAudio;
-        public AudioClip _SFXClick;
+        public Experience.IDs _RunExperience;
         public Animator animator;
         public override void StartUsing(VRTK_InteractUse usingObject)
         {
             animator.SetBool("press", true);
-            FindObjectOfType<GameManager>().LoadScenes(sceneIndexes, _SFXClick, _StoryAudio);
+            FindObjectOfType<GameManager>().LoadExperience(_RunExperience);
         }
     }
 }

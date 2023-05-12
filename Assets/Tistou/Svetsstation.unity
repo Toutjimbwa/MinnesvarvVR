@@ -6730,6 +6730,50 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!1 &585146897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 585146899}
+  - component: {fileID: 585146898}
+  m_Layer: 0
+  m_Name: SvetsStation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &585146898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 585146897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db19b495333e2be408efd4fee13c4426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 5
+  _NextExperience: 2
+  _VRSetups:
+  - {fileID: 1607388549}
+--- !u!4 &585146899
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 585146897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -121.335205, y: 2.8144531, z: 9.316406}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &585186612
 GameObject:
   m_ObjectHideFlags: 0
@@ -6914,7 +6958,7 @@ Rigidbody:
   m_CollisionDetection: 0
 --- !u!4 &608839385 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 419744, guid: ca265c0fc1d5ba44ebf3c78f45e8cfb4, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 608839381}
 --- !u!1001 &644353585
 Prefab:
