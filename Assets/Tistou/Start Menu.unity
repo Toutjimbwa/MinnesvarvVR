@@ -1515,8 +1515,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ID: 0
   _NextExperience: 0
-  _VRSetups:
-  - {fileID: 343007586}
 --- !u!1 &1304121678
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,14 +2044,14 @@ MonoBehaviour:
   _StartMenuSceneIndices: 00000000
   _HelvarvStartAudioClip: {fileID: 8300000, guid: 8f5d19e3a087c5b429789a08bb3e8e98,
     type: 3}
-  _HelvarvSceneIndices: 010000000200000003000000
-  _StoryToRivetIndices: 
-  _StoryToShipProcessIndices: 
-  _StoryToChampagneIndices: 
-  _WeldIndices: 0100000003000000
-  _RivetIndices: 
-  _ShipProcessIndices: 
-  _ChampagneIndices: 
+  _HelvarvScenes: 010000000200000003000000
+  _StoryToRivetScenes: 
+  _StoryToShipProcessScenes: 
+  _StoryToChampagneScenes: 
+  _WeldScenes: 010000000300000004000000
+  _RivetScenes: 
+  _ShipProcessScenes: 
+  _ChampagneScenes: 
   _StoryAudioSource: {fileID: 1996185291}
   _SFXAudioSource: {fileID: 1996185290}
 --- !u!4 &1996185289
