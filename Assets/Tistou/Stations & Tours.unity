@@ -1083,7 +1083,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 648543415}
-  - component: {fileID: 648543416}
   m_Layer: 0
   m_Name: PlayArea
   m_TagString: Untagged
@@ -1105,20 +1104,6 @@ Transform:
   m_Father: {fileID: 1575373391}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &648543416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 648543414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db19b495333e2be408efd4fee13c4426, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ID: 6
-  _TeleportPosition: {fileID: 0}
-  _NextExperience: 3
 --- !u!1 &650579543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,7 +1578,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1158801184}
   - component: {fileID: 1158801187}
-  - component: {fileID: 1158801186}
   - component: {fileID: 1158801185}
   m_Layer: 0
   m_Name: Cart
@@ -1647,18 +1631,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1158801186
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1158801183}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1158801187
 MeshFilter:
   m_ObjectHideFlags: 0
