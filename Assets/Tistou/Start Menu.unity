@@ -3416,6 +3416,7 @@ MonoBehaviour:
   _SFXAudioSource: {fileID: 1996185290}
   _Teleport: {fileID: 1996185292}
   _TeleportingEvents: {fileID: 1129426887}
+  _vrtkTransformFollow: {fileID: 1996185294}
 --- !u!4 &1996185289
 Transform:
   m_ObjectHideFlags: 0

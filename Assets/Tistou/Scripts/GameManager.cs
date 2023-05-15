@@ -26,9 +26,10 @@ namespace TistouVR
 
 		[Header("Teleportation")]
 		public Teleport _Teleport;
-
 		public VRTK_ControllerEvents _TeleportingEvents;
-		
+
+		[Header("Tour")]
+		public VRTK_TransformFollow _vrtkTransformFollow;
 		
 		private bool loadingScenes = false;
 		private static GameManager instance;
@@ -83,7 +84,13 @@ namespace TistouVR
 				if (e._ID == experienceID)
 				{
 					_Teleport.ToExperience(e, _TeleportingEvents);
+					if (e is Tour)
+					{
+						_vrtkTransformFollow.gameObjectToFollow = e._TeleportPosition.gameObject;
+						_vrtkTransformFollow.enabled = true;
+					}
 					e.StartExperience();
+					break;
 				}
 			}
 		}
