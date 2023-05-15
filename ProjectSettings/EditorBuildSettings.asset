@@ -12,8 +12,5 @@ EditorBuildSettings:
     path: Assets/Tistou/Level.unity
     guid: 14a03dd9a7f08694d958cbcd031d5eb7
   - enabled: 1
-    path: Assets/Tistou/Tours.unity
-    guid: bbc1dce9adf40ce409fe6c1fc7f76430
-  - enabled: 1
     path: Assets/Tistou/Stations & Tours.unity
     guid: 929a260231fe422488d041cf863f6c05

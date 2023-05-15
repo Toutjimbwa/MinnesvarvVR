@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using VRTK;
 using VRTK.UnityEventHelper;
 
 namespace TistouVR
@@ -15,11 +16,17 @@ namespace TistouVR
 		
 		[Header("Start Helvarv")] //Helvarv
 		public AudioClip _HelvarvStartAudioClip;
-		private static int[] LEVEL_SCENES = new []{1,2,3};
+		private static int[] LEVEL_SCENES = new []{1,2};
 
 		[Header("Audio")]
 		public AudioSource _StoryAudioSource;
 		public AudioSource _SFXAudioSource;
+
+		[Header("Teleportation")]
+		public Teleport _Teleport;
+
+		public VRTK_ControllerEvents _TeleportingEvents;
+		
 		
 		private bool loadingScenes = false;
 		private static GameManager instance;
@@ -48,32 +55,13 @@ namespace TistouVR
 			
 			switch (experienceID)
 			{
-				case Experience.IDs.StartMenu:
-					break;
 				case Experience.IDs.StoryToWeld:
 					StartStoryToWeld();
 					break;
-				case Experience.IDs.StoryToRivet:
-					break;
-				case Experience.IDs.StoryToShipProcess:
-					break;
-				case Experience.IDs.StoryToChampagne:
-					break;
-				case Experience.IDs.Weld:
-					StartWeld();
-					break;
-				case Experience.IDs.Rivet:
-					break;
-				case Experience.IDs.ShipProcess:
-					break;
-				case Experience.IDs.Champagne:
+				default:
+					LoadExperience(4, LEVEL_SCENES, experienceID);
 					break;
 			}
-		}
-
-		private void StartWeld()
-		{
-			LoadExperience(4, LEVEL_SCENES, Experience.IDs.Weld);
 		}
 
 		private void StartStoryToWeld()
@@ -92,6 +80,7 @@ namespace TistouVR
 			{
 				if (e._ID == experienceID)
 				{
+					_Teleport.ToTransform(e.transform, _TeleportingEvents);
 					e.StartExperience();
 				}
 			}
