@@ -6,7 +6,7 @@ using VRTK;
 
 namespace TistouVR
 {
-    public class LoadSceneButton : VRTK_InteractableObject
+    public class LoadExperience : VRTK_InteractableObject
     {
         public Experience.IDs _RunExperience;
         public Animator animator;
