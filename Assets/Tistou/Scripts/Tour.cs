@@ -16,6 +16,7 @@ namespace TistouVR
 
 		public override void StartExperience()
 		{
+			base.StartExperience();
 			_Animator.SetTrigger(START_TOUR_TRIGGER);
 			_StoryAudio.Play();
 			StartCoroutine(EndTour());

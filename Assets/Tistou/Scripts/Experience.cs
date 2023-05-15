@@ -24,12 +24,31 @@ namespace TistouVR
 
 		public virtual void StartExperience()
 		{
-			Debug.Log("Start experience " + name);
+			ShowGameObjects();
+			foreach (var e in FindObjectsOfType<Experience>())
+			{
+				if (e._ID == _NextExperience)
+				{
+					e.ShowGameObjects();
+					break;
+				}
+			}
 		}
 
 		public void StopExperience()
 		{
-			Debug.Log("Stop experience " + name);
+			GetComponent<AudioSource>().Stop();
+			HideGameObjects();
+		}
+
+		public void ShowGameObjects()
+		{
+			gameObject.SetActive(true);
+		}
+
+		public void HideGameObjects()
+		{
+			gameObject.SetActive(false);
 		}
 	}
 }

@@ -12,13 +12,13 @@ namespace TistouVR
 	public class GameManager : MonoBehaviour
 	{
 
-		private static int STARTMENU_SCENE_INDEX = 0;
+		private static int STARTMENU_SCENE_INDEX = 1;
 
 		public float _FadeOutDelayForStations = 4;
 		
 		[Header("Start Helvarv")] //Helvarv
 		public AudioClip _HelvarvStartAudioClip;
-		private static int[] LEVEL_SCENES = new []{1,2};
+		private static int[] LEVEL_SCENES = new []{2,3};
 
 		[Header("Audio")]
 		public AudioSource _StoryAudioSource;
@@ -58,25 +58,33 @@ namespace TistouVR
 			
 			switch (experienceID)
 			{
+				case Experience.IDs.StartMenu:
+					StartStartMenu();
+					break;
 				case Experience.IDs.StoryToWeld:
 					StartStoryToWeld();
 					break;
 				default:
-					LoadScenesNoAudio(_FadeOutDelayForStations, LEVEL_SCENES, experienceID);
+					LoadScenesNoAudio(_FadeOutDelayForStations, LEVEL_SCENES);
 					break;
 			}
 		}
 
+		private void StartStartMenu()
+		{
+			LoadScenesNoAudio(_FadeOutDelayForStations, new []{STARTMENU_SCENE_INDEX});
+		}
+
 		private void StartStoryToWeld()
 		{
-			LoadScenesWithAudio(_HelvarvStartAudioClip.length, LEVEL_SCENES, Experience.IDs.StoryToWeld, _HelvarvStartAudioClip);
+			LoadScenesWithAudio(_HelvarvStartAudioClip.length, LEVEL_SCENES, _HelvarvStartAudioClip);
 		}
 
 		private void StartExperience(Experience.IDs experienceID)
 		{
 			foreach (var e in FindObjectsOfType<Experience>())
 			{
-				e.StopExperience();
+				e.StopExperience(); 
 			}
 			
 			foreach (var e in FindObjectsOfType<Experience>())
@@ -95,21 +103,21 @@ namespace TistouVR
 			}
 		}
 
-		private void LoadScenesWithAudio(float fadeOutDelay, int[] sceneIndices, Experience.IDs experience, AudioClip exitAudioClip)
+		private void LoadScenesWithAudio(float fadeOutDelay, int[] sceneIndices, AudioClip exitAudioClip)
 		{
 			_StoryAudioSource.clip = exitAudioClip;
 			_StoryAudioSource.Play();
 			
-			LoadScenesNoAudio(fadeOutDelay, sceneIndices, experience);
+			LoadScenesNoAudio(fadeOutDelay, sceneIndices);
 		}
 		
-		private void LoadScenesNoAudio(float fadeOutDelay, int[] sceneIndices, Experience.IDs experience)
+		private void LoadScenesNoAudio(float fadeOutDelay, int[] sceneIndices)
 		{
 			FadeOut(_HelvarvStartAudioClip.length);
-			StartCoroutine(LoadScenesWithDelay(fadeOutDelay, sceneIndices, experience));
+			StartCoroutine(LoadScenesWithDelay(fadeOutDelay, sceneIndices));
 		}
 		
-		private IEnumerator LoadScenesWithDelay(float delay, int[] sceneIndices, Experience.IDs experience)
+		private IEnumerator LoadScenesWithDelay(float delay, int[] sceneIndices)
 		{
 			_nextScenesToLoad.Clear();
 			_nextScenesToLoad.AddRange(sceneIndices);
@@ -148,6 +156,7 @@ namespace TistouVR
 		private void Start()
 		{
 			SceneManager.sceneLoaded += OnSceneLoaded;
+			LoadExperience(Experience.IDs.StartMenu);
 		}
 
 		private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
