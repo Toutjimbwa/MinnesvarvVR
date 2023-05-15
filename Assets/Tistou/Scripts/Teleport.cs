@@ -14,7 +14,12 @@ namespace TistouVR
 			ToTransform(transform, controller);
 		}
 
-		public void ToTransform(Transform destination, VRTK_ControllerEvents controller)
+		public void ToExperience(Experience e, VRTK_ControllerEvents controller)
+		{
+			ToTransform(e._TeleportPosition, controller);
+		}
+
+		private void ToTransform(Transform destination, VRTK_ControllerEvents controller)
 		{
 			float distance = Vector3.Distance(transform.position, destination.position);
 			

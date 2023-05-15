@@ -13,6 +13,8 @@ namespace TistouVR
 	{
 
 		private static int STARTMENU_SCENE_INDEX = 0;
+
+		public float _FadeOutDelayForStations = 4;
 		
 		[Header("Start Helvarv")] //Helvarv
 		public AudioClip _HelvarvStartAudioClip;
@@ -51,7 +53,7 @@ namespace TistouVR
 			if (loadingScenes) return;
 			loadingScenes = true;
 			
-			Debug.Log("load exp.");
+			_nextExperience = experienceID;
 			
 			switch (experienceID)
 			{
@@ -59,14 +61,14 @@ namespace TistouVR
 					StartStoryToWeld();
 					break;
 				default:
-					LoadExperience(4, LEVEL_SCENES, experienceID);
+					LoadScenesNoAudio(_FadeOutDelayForStations, LEVEL_SCENES, experienceID);
 					break;
 			}
 		}
 
 		private void StartStoryToWeld()
 		{
-			LoadExperience(_HelvarvStartAudioClip.length, LEVEL_SCENES, Experience.IDs.StoryToWeld, _HelvarvStartAudioClip);
+			LoadScenesWithAudio(_HelvarvStartAudioClip.length, LEVEL_SCENES, Experience.IDs.StoryToWeld, _HelvarvStartAudioClip);
 		}
 
 		private void StartExperience(Experience.IDs experienceID)
@@ -80,21 +82,21 @@ namespace TistouVR
 			{
 				if (e._ID == experienceID)
 				{
-					_Teleport.ToTransform(e.transform, _TeleportingEvents);
+					_Teleport.ToExperience(e, _TeleportingEvents);
 					e.StartExperience();
 				}
 			}
 		}
 
-		private void LoadExperience(float fadeOutDelay, int[] sceneIndices, Experience.IDs experience, AudioClip exitAudioClip)
+		private void LoadScenesWithAudio(float fadeOutDelay, int[] sceneIndices, Experience.IDs experience, AudioClip exitAudioClip)
 		{
 			_StoryAudioSource.clip = exitAudioClip;
 			_StoryAudioSource.Play();
 			
-			LoadExperience(fadeOutDelay, sceneIndices, experience);
+			LoadScenesNoAudio(fadeOutDelay, sceneIndices, experience);
 		}
 		
-		private void LoadExperience(float fadeOutDelay, int[] sceneIndices, Experience.IDs experience)
+		private void LoadScenesNoAudio(float fadeOutDelay, int[] sceneIndices, Experience.IDs experience)
 		{
 			FadeOut(_HelvarvStartAudioClip.length);
 			StartCoroutine(LoadScenesWithDelay(fadeOutDelay, sceneIndices, experience));
@@ -104,8 +106,7 @@ namespace TistouVR
 		{
 			_nextScenesToLoad.Clear();
 			_nextScenesToLoad.AddRange(sceneIndices);
-			_nextExperience = experience;
-			
+
 			yield return new WaitForSeconds(delay);
 			
 			SceneManager.LoadScene(_nextScenesToLoad[0]);
@@ -124,8 +125,6 @@ namespace TistouVR
 				timer += Time.deltaTime;
 				yield return null;
 			}
-			
-			Debug.Log("Scene faded out");
 		}
 
 		private IEnumerator FadeIn(float duration)
@@ -137,8 +136,6 @@ namespace TistouVR
 				timer += Time.deltaTime;
 				yield return null;
 			}
-			
-			Debug.Log("Scene faded in");
 		}
 
 		private void Start()
@@ -148,7 +145,6 @@ namespace TistouVR
 
 		private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 		{
-			Debug.Log("On scene loaded");
 			foreach (int index in _nextScenesToLoad)
 			{
 				if (SceneManager.GetSceneByBuildIndex(index).isLoaded == false)

@@ -2406,6 +2406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ID: 0
+  _TeleportPosition: {fileID: 0}
   _NextExperience: 0
 --- !u!1 &1304121678
 GameObject:
@@ -3407,6 +3408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5526c1a57ef400643a86d09ba3d7250b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _FadeOutDelayForStations: 4
   _HelvarvStartAudioClip: {fileID: 8300000, guid: 8f5d19e3a087c5b429789a08bb3e8e98,
     type: 3}
   _StoryAudioSource: {fileID: 1996185291}

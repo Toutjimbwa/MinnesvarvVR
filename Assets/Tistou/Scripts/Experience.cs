@@ -19,6 +19,7 @@ namespace TistouVR
 			Champagne
 		}
 		public IDs _ID;
+		public Transform _TeleportPosition;
 		public Experience.IDs _NextExperience;
 
 		public virtual void StartExperience()
