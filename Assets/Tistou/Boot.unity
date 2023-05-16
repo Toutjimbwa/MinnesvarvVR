@@ -3242,6 +3242,7 @@ MonoBehaviour:
   _ID: 0
   _TeleportPosition: {fileID: 860424890}
   _NextExperience: 0
+  _HideGameObjectOnStopExperience: 1
   _AudioIntro: {fileID: 8300000, guid: 31b3aafa315e5714bad6d07d8843019f, type: 3}
   _AudioSource: {fileID: 1196055324}
 --- !u!82 &1196055324

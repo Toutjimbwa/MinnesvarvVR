@@ -21,6 +21,7 @@ namespace TistouVR
 		public IDs _ID;
 		public Transform _TeleportPosition;
 		public Experience.IDs _NextExperience;
+		public bool _HideGameObjectOnStopExperience = false;
 
 		public virtual void StartExperience()
 		{
@@ -38,7 +39,7 @@ namespace TistouVR
 		public void StopExperience()
 		{
 			GetComponent<AudioSource>().Stop();
-			HideGameObjects();
+			if(_HideGameObjectOnStopExperience) HideGameObjects();
 		}
 
 		public void ShowGameObjects()
@@ -48,6 +49,7 @@ namespace TistouVR
 
 		public void HideGameObjects()
 		{
+			Debug.Log(name + " hide game objects");
 			gameObject.SetActive(false);
 		}
 	}

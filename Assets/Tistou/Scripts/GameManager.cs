@@ -51,6 +51,8 @@ namespace TistouVR
 
 		public void LoadExperience(Experience.IDs experienceID)
 		{
+			Debug.Log("load exp.");
+			
 			if (loadingScenes) return;
 			loadingScenes = true;
 			
@@ -72,6 +74,7 @@ namespace TistouVR
 
 		private void StartStartMenu()
 		{
+			Debug.Log("start start menu.");
 			LoadScenesNoAudio(_FadeOutDelayForStations, new []{STARTMENU_SCENE_INDEX});
 		}
 
@@ -82,12 +85,14 @@ namespace TistouVR
 
 		private void StartExperience(Experience.IDs experienceID)
 		{
-			foreach (var e in FindObjectsOfType<Experience>())
+			var experiencesInScene = FindObjectsOfType<Experience>();
+			
+			foreach (var e in experiencesInScene)
 			{
 				e.StopExperience(); 
 			}
 			
-			foreach (var e in FindObjectsOfType<Experience>())
+			foreach (var e in experiencesInScene)
 			{
 				if (e._ID == experienceID)
 				{
