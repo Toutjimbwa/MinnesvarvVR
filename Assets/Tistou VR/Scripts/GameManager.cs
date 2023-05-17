@@ -18,6 +18,7 @@ namespace TistouVR
 		
 		[Header("Start Helvarv")] //Helvarv
 		public AudioClip _HelvarvStartAudioClip;
+		public AudioClip _svetsCompleteAudioClip;
 		private static int[] LEVEL_SCENES = new []{2,3};
 
 		[Header("Audio")]
@@ -51,7 +52,7 @@ namespace TistouVR
 
 		public void LoadExperience(Experience.IDs experienceID)
 		{
-			Debug.Log("load exp.");
+			Debug.Log("load exp: " + experienceID.ToString());
 			
 			if (loadingScenes) return;
 			loadingScenes = true;
@@ -65,6 +66,9 @@ namespace TistouVR
 					break;
 				case Experience.IDs.StoryToWeld:
 					StartStoryToWeld();
+					break;
+				case Experience.IDs.StoryToRivet:
+					StartStoryToRivet();
 					break;
 				default:
 					LoadScenesNoAudio(_FadeOutDelayForStations, LEVEL_SCENES);
@@ -82,6 +86,11 @@ namespace TistouVR
 		{
 			LoadScenesWithAudio(_HelvarvStartAudioClip.length, LEVEL_SCENES, _HelvarvStartAudioClip);
 		}
+		
+		private void StartStoryToRivet()
+		{
+			LoadScenesWithAudio(_svetsCompleteAudioClip.length, LEVEL_SCENES, _svetsCompleteAudioClip);
+		}
 
 		private void StartExperience(Experience.IDs experienceID)
 		{
@@ -89,7 +98,7 @@ namespace TistouVR
 			
 			foreach (var e in experiencesInScene)
 			{
-				e.StopExperience(); 
+				e.StopExperience();
 			}
 			
 			foreach (var e in experiencesInScene)

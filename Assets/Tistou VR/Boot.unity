@@ -3243,6 +3243,7 @@ MonoBehaviour:
   _TeleportPosition: {fileID: 860424890}
   _NextExperience: 0
   _HideGameObjectOnStopExperience: 0
+  DEBUG: 1
   _AudioIntro: {fileID: 8300000, guid: 31b3aafa315e5714bad6d07d8843019f, type: 3}
   _AudioSource: {fileID: 1196055324}
 --- !u!82 &1196055324
@@ -4907,6 +4908,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _FadeOutDelayForStations: 4
   _HelvarvStartAudioClip: {fileID: 8300000, guid: 8f5d19e3a087c5b429789a08bb3e8e98,
+    type: 3}
+  _svetsCompleteAudioClip: {fileID: 8300000, guid: 9e6253f564dc0824e8b987884d866f02,
     type: 3}
   _StoryAudioSource: {fileID: 1996185291}
   _SFXAudioSource: {fileID: 1996185290}

@@ -14,6 +14,7 @@ namespace TistouVR
 		
 		public override void StartExperience()
 		{
+			Debug.Log("Experience started: " + name);
 			base.StartExperience();
 			_AudioSource.clip = _AudioIntro;
 			_AudioSource.Play();

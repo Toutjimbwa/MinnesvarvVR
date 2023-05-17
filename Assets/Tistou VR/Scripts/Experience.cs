@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TistouVR
 {
@@ -18,11 +19,20 @@ namespace TistouVR
 			ShipProcess,
 			Champagne
 		}
+		[Header("Experience settings")]
 		public IDs _ID;
 		public Transform _TeleportPosition;
 		public Experience.IDs _NextExperience;
 		public bool _HideGameObjectOnStopExperience = false;
+		
+		[FormerlySerializedAs("DEBUG")] [Header("Debug")]
+		public bool _ForceStartExperienceOnStart = true;
 
+		private void Start()
+		{
+			if(_ForceStartExperienceOnStart) StartExperience();
+		}
+		
 		public virtual void StartExperience()
 		{
 			ShowGameObjects();
