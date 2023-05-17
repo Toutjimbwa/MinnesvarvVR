@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Tistou/Boot.unity
-    guid: cd133dcf05ca08748921d4536d351ba9
+    path: Assets/Tistou VR/Boot.unity
+    guid: 3d567242cf0a84344ade646181158e1c
   - enabled: 1
-    path: Assets/Tistou/Start Menu.unity
+    path: Assets/Tistou VR/Start Menu.unity
     guid: 7eb3596e1b9718f42affad92a7529a86
   - enabled: 1
-    path: Assets/Tistou/Level.unity
+    path: Assets/Tistou VR/Level.unity
     guid: 14a03dd9a7f08694d958cbcd031d5eb7
   - enabled: 1
-    path: Assets/Tistou/Stations & Tours.unity
+    path: Assets/Tistou VR/Stations & Tours.unity
     guid: 929a260231fe422488d041cf863f6c05
