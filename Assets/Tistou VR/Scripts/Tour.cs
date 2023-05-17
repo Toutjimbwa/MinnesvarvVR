@@ -13,6 +13,7 @@ namespace TistouVR
 		public Animator _Animator;
 		public AnimationClip _tourClip;
 		public AudioSource _StoryAudio;
+		public bool _PackageTest = false;
 
 		public override void StartExperience()
 		{
